@@ -5,24 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="#53f2df"
     tools:context=".MainActivity">
-
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="34dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="105dp"
-        android:layout_below="@+id/spinner1"
-        android:layout_alignLeft="@+id/spinner1"
-        android:layout_alignStart="@+id/spinner1" />
 
     <EditText
         android:id="@+id/editText1"
@@ -30,22 +14,43 @@
         android:layout_height="wrap_content"
         android:background="#CCCCCC"
         android:ems="10"
-        android:hint=" Input Value"
+        android:hint="@string/input_value1"
         android:layout_marginBottom="88dp"
         android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:inputType="numberDecimal">
 
         <requestFocus />
     </EditText>
 
     <Button
-        android:text="Convert Currency"
+        android:text="@string/convert_currency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button"
         android:layout_marginBottom="57dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="109dp"
+        android:layout_below="@+id/spinner1"
+        android:layout_alignLeft="@+id/spinner1"
+        android:layout_alignStart="@+id/spinner1" />
 
 
 </RelativeLayout>

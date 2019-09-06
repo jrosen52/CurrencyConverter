@@ -9,13 +9,28 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    String[] currency={"Pound","Cad","Euro","Peso","Yuan"};
-    int images[] = {R.drawable.pound,R.drawable.cad, R.drawable.euro, R.drawable.peso, R.drawable.yen };
+    String[] currency={"Dollar","Pound","Cad","Euro","Peso","Yuan"};
+    int images[] = {R.drawable.dollar, R.drawable.pound, R.drawable.cad, R.drawable.euro, R.drawable.peso, R.drawable.yen };
     double euroV = .91;
     double yuanV = 7.15;
     double cadV = 1.33;
     double poundV = .82;
     double pesoV = 19.79;
+    double dollarV = 1.00;
+
+    double firstValue;
+    double secondVaue;
+
+    int calculateResult(int c1, int c2, int value, int pos)
+    {
+        int result = value/c1;
+        if(pos == 0)
+        {
+            return result;
+        }
+        result = result * c2;
+        return result;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
