@@ -4,31 +4,41 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
+import android.text.Editable;
+import android.widget.TextView;
+import android.text.TextWatcher;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     String[] currency={"Dollar","Pound","Cad","Euro","Peso","Yuan"};
     int images[] = {R.drawable.dollar, R.drawable.pound, R.drawable.cad, R.drawable.euro, R.drawable.peso, R.drawable.yen };
+    /*
     double euroV = .91;
     double yuanV = 7.15;
     double cadV = 1.33;
     double poundV = .82;
     double pesoV = 19.79;
     double dollarV = 1.00;
+    */
+    double values[] = {1, .82, 1.33, .91, 19.54, 7.15};
 
     double firstValue;
-    double secondVaue;
+    double secondValue;
+    double calcValue;
+    double resValue = 0;
+    public String text;
 
-    int calculateResult(int c1, int c2, int value, int pos)
+    private Button calcButton;
+
+    double calculateResult(double c1, double c2, double value)
     {
-        int result = value/c1;
-        if(pos == 0)
-        {
-            return result;
-        }
+        double result = value/c1;
         result = result * c2;
+        //Toast.makeText(MainActivity.this, "The result is "+result, Toast.LENGTH_SHORT).show();
         return result;
     }
 
@@ -42,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(MainActivity.this, "You Select Position: "+position+" "+currency[position], Toast.LENGTH_SHORT).show();
+                firstValue = values[position];
             }
 
             @Override
@@ -59,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(MainActivity.this, "Two Select Position: "+position+" "+currency[position], Toast.LENGTH_SHORT).show();
+                secondValue = values[position];
             }
 
             @Override
@@ -70,5 +82,42 @@ public class MainActivity extends AppCompatActivity {
         SpinnerAdapter customAdapter2 = new SpinnerAdapter(getApplicationContext(),images,currency);
         spin2.setAdapter(customAdapter2);
 
+        final EditText editText = (EditText) findViewById(R.id.editText1);
+        //text = editText.getText().toString();
+
+
+        editText.addTextChangedListener(new TextWatcher() {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //resNum.setText("");
+            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+            public void afterTextChanged(CharSequence s, int start, int before, int count) {
+                //text = editText.getText().toString();
+                //Toast.makeText(MainActivity.this, "The value is: "+ text, Toast.LENGTH_SHORT).show();
+            }
+            public void afterTextChanged(Editable s) {
+                text = editText.getText().toString();
+                //resNum.setText("You have entered : " + editText.getText());
+            }
+        });
+
+        //calcValue = Double.valueOf(text);
+        calcButton = (Button) findViewById(R.id.button);
+        calcButton.setOnClickListener(this);
+
     }
+
+    @Override
+    public void onClick(View view)
+    {
+        final TextView resNum = (TextView) findViewById(R.id.result);
+        switch (view.getId()) {
+            case R.id.button:
+                calcValue = Double.valueOf(text);
+                resValue = calculateResult(firstValue, secondValue, calcValue);
+                resNum.setText("The result is : " + resValue);
+        }
+    }
+
 }
