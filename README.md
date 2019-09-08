@@ -16,11 +16,19 @@ currency is given an exchange value, all of which is relative to the American Do
 then multipled by the second currency value. The resulting value will be the correct exchange amount for the input.
 
 Here is documentation for each git commit, and any relative citations:
+
 August 28: Created the project and repository
+
 August 30: Added code that creates a custom spinner object (based on demonuts https://demonuts.com/android-spinner/)
+
 September 3: Spinner was not working as intended, so fixes were attempted
+
 September 4: Added a new file that fixed the spinner issue, again based of the implementation from demonuts
+
 September 5: Added code for edit text view and button. Text watcher was implemented with help from stackexchange (https://stackoverflow.com/questions/8543449/how-to-use-the-textwatcher-class-in-android)
+
 September 6: Changed the colors of the views and added function for calculation
+
 September 7: Connected the calculation function to button to get a result
+
 September 8: Final touches on design and added more currencies
