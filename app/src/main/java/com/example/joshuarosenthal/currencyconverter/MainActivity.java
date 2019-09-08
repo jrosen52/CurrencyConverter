@@ -14,8 +14,9 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    String[] currency={"Dollar","Pound","Cad","Euro","Peso","Yuan"};
-    int images[] = {R.drawable.dollar, R.drawable.pound, R.drawable.cad, R.drawable.euro, R.drawable.peso, R.drawable.yen };
+    String[] currency={"Dollar","Pound","Cad","Euro","Peso","Yuan", "Franc", "Rupee", "Ruble"};
+    int images[] = {R.drawable.dollar, R.drawable.pound, R.drawable.cad,
+            R.drawable.euro, R.drawable.peso, R.drawable.yen, R.drawable.franc, R.drawable.rupee, R.drawable.ruble };
     /*
     double euroV = .91;
     double yuanV = 7.15;
@@ -23,8 +24,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     double poundV = .82;
     double pesoV = 19.79;
     double dollarV = 1.00;
+    double francV = .99;
+    double rupeeV = 71.65;
+    double rubleV = 65.72;
     */
-    double values[] = {1, .82, 1.33, .91, 19.54, 7.15};
+    double values[] = {1, .82, 1.33, .91, 19.54, 7.15, .99, 71.65, 65.72};
 
     double firstValue;
     double secondValue;
@@ -51,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, "You Select Position: "+position+" "+currency[position], Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "You Select Position: "+position+" "+currency[position], Toast.LENGTH_SHORT).show();
                 firstValue = values[position];
             }
 
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, "Two Select Position: "+position+" "+currency[position], Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Two Select Position: "+position+" "+currency[position], Toast.LENGTH_SHORT).show();
                 secondValue = values[position];
             }
 
