@@ -4,4 +4,7 @@
     <string name="input_value">\'Input value\'</string>
     <string name="convert_currency">Convert Currency</string>
     <string name="input_value1">Input Value</string>
+    <string name="blank" />
+    <string name="converter">Converter</string>
+    <string name="currency">Currency</string>
 </resources>

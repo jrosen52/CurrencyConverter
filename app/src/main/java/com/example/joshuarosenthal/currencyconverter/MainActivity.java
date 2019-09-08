@@ -116,7 +116,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button:
                 calcValue = Double.valueOf(text);
                 resValue = calculateResult(firstValue, secondValue, calcValue);
-                resNum.setText("The result is : " + resValue);
+                double number = Math.round(resValue * 100);
+                number = number/100;
+                resNum.setText(""+number);
         }
     }
 
